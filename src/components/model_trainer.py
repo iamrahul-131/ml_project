@@ -47,8 +47,47 @@ class ModelTrainer:
                 "AdaBoost Regressor": AdaBoostRegressor()
 
             }
+            params = {
+    "Random Forest": {
+        "n_estimators": [50, 100],
+        "max_depth": [None, 5, 10]
+    },
 
-            model_report:dict=evaluate_models(x_train=x_train,x_test=x_test,y_train=y_train,y_test=y_test,models=models)
+    "Decision Tree": {
+        "max_depth": [None, 5, 10],
+        "criterion": ["squared_error", "friedman_mse"]
+    },
+
+    "Gradient Boosting": {
+        "learning_rate": [0.01, 0.1],
+        "n_estimators": [50, 100]
+    },
+
+    "Linear Regression": {},
+
+    "K-Neighbors Regressor": {
+        "n_neighbors": [5, 7, 9, 11],
+        "weights": ["uniform", "distance"],
+        "algorithm": ["ball_tree", "kd_tree", "brute"]
+    },
+
+    "XGBRegressor": {
+        "learning_rate": [0.1, 0.01],
+        "n_estimators": [50, 100]
+    },
+
+    "CatBoost Regressor": {
+        "depth": [6, 8],
+        "learning_rate": [0.01, 0.1]
+    },
+
+    "AdaBoost Regressor": {
+        "n_estimators": [50, 100],
+        "learning_rate": [0.01, 0.1]
+    }
+}
+
+            model_report:dict=evaluate_models(x_train=x_train,x_test=x_test,y_train=y_train,y_test=y_test,models=models,param=params)
 
             ## To get best model score from dict
             best_model_score=max(sorted(model_report.values()))
