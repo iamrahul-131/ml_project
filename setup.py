@@ -18,6 +18,9 @@ def get_requirements(file_path:str)->List[str]:
 
         if HYPHEN_DOT in requirements:
             requirements.remove(HYPHEN_DOT)
+
+    return requirements
+
 setup(
     name="ml_project",
     version="0.0.1",

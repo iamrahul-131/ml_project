@@ -6,4 +6,5 @@ scikit-learn
 catboost
 xgboost
 dill
+flask 
 #-e .  ->isko abhi comment out kar rha because hamaa jab pura project ban jaega tab isko chalaenga taki pura project package ban jae abhi sirf ye libraries install karni hai to islia comment out kar dia
